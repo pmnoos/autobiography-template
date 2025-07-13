@@ -7,8 +7,17 @@ demo_user = User.find_or_create_by(email_address: "demo@autobiography-template.c
   user.password = "password123"
 end
 
+# Create admin user for easier access
+admin_user = User.find_or_create_by(email_address: "admin@example.com") do |user|
+  user.password = "password123"
+end
+
 puts "✅ Demo user created/found:"
 puts "📧 Email: #{demo_user.email_address}"
+puts "🔐 Password: password123"
+puts
+puts "✅ Admin user created/found:"
+puts "📧 Email: #{admin_user.email_address}"
 puts "🔐 Password: password123"
 
 # Create sample chapters for demonstration
@@ -46,25 +55,21 @@ end
 sample_photos = [
   {
     title: "Family Portrait",
-    description: "A wonderful family gathering that captures the essence of togetherness. Replace with your own cherished family photos.",
-    caption: "Sample family photo - replace with your own images"
+    description: "A wonderful family gathering that captures the essence of togetherness. Replace with your own cherished family photos."
   },
   {
     title: "Graduation Day", 
-    description: "A milestone achievement worth preserving for future generations. The photo gallery feature makes it easy to organize and display your precious memories.",
-    caption: "Sample graduation photo - customize with your achievements"
+    description: "A milestone achievement worth preserving for future generations. The photo gallery feature makes it easy to organize and display your precious memories."
   },
   {
     title: "Travel Adventure",
-    description: "Exploring new places and creating lasting memories. Document your journeys and adventures with beautiful photo galleries.", 
-    caption: "Sample travel photo - add your own adventures"
+    description: "Exploring new places and creating lasting memories. Document your journeys and adventures with beautiful photo galleries."
   }
 ]
 
 sample_photos.each do |photo_data|
   Photo.find_or_create_by(title: photo_data[:title]) do |photo|
     photo.description = photo_data[:description]
-    photo.caption = photo_data[:caption]
   end
 end
 
@@ -74,5 +79,7 @@ puts "📚 #{Chapter.count} demo chapters"
 puts "🖼️  #{Photo.count} demo photos"
 puts
 puts "🚀 Your Autobiography Template is ready!"
-puts "👉 Sign in with: demo@autobiography-template.com / password123"
+puts "👉 Sign in with either:"
+puts "   • admin@example.com / password123"
+puts "   • demo@autobiography-template.com / password123"
 puts "📝 Replace this sample content with your own stories and photos."

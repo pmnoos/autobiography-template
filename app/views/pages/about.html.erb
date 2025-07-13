@@ -15,11 +15,8 @@
     <div class="lg:col-span-1">
       <div class="bg-white rounded-lg shadow-md p-6 text-center">
         <div class="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center mx-auto mb-4">
-          <img src="/profile.jpg" 
-               alt="Profile Photo" 
-               class="w-full h-full object-cover"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <svg class="w-12 h-12 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <!-- Generic user icon -->
+          <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
           </svg>
         </div>
@@ -77,7 +74,40 @@
             </div>
             <div class="flex items-start justify-center space-x-3">
               <div class="w-1 h-1 bg-blue-600 rounded-full mt-2.5 flex-shrink-0"></div>
-              <span class="text-gray-700 font-bold">Family history and heritage</span>
+              <span class="text-gray-700 font-bold">PDF export for printing books</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PDF Export Feature Section -->
+        <div class="mt-8 border-t border-gray-200 pt-8">
+          <h3 class="text-lg font-semibold text-gray-900 mb-4 text-center">📄 Create Beautiful PDF Books</h3>
+          <div class="bg-purple-50 rounded-lg p-6">
+            <p class="text-gray-700 mb-4 text-center">
+              Transform your digital autobiography into professionally formatted PDF books that can be printed and shared offline.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+              <div>
+                <div class="w-12 h-12 bg-purple-100 rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <span class="text-xl">📖</span>
+                </div>
+                <h4 class="font-medium text-gray-900">Complete Books</h4>
+                <p class="text-sm text-gray-600">Export your entire autobiography as one PDF</p>
+              </div>
+              <div>
+                <div class="w-12 h-12 bg-purple-100 rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <span class="text-xl">📄</span>
+                </div>
+                <h4 class="font-medium text-gray-900">Individual Chapters</h4>
+                <p class="text-sm text-gray-600">Generate PDFs for specific chapters</p>
+              </div>
+              <div>
+                <div class="w-12 h-12 bg-purple-100 rounded-full mx-auto mb-2 flex items-center justify-center">
+                  <span class="text-xl">🖨️</span>
+                </div>
+                <h4 class="font-medium text-gray-900">Print Ready</h4>
+                <p class="text-sm text-gray-600">Professional layouts for printing</p>
+              </div>
             </div>
           </div>
         </div>

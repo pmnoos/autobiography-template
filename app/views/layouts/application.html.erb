@@ -22,7 +22,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-50">
+  <body class="bg-gray-50 theme-default" id="app-body">
     <!-- Navigation Bar -->
     <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,6 +46,89 @@
             <%= link_to "Home", root_path, class: "text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors" %>
             <%= link_to "Chapters", list_chapters_path, class: "text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors" %>
             <%= link_to "Gallery", photos_path, class: "text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors" %>
+            
+            <!-- PDF Export Dropdown -->
+            <div class="relative group">
+              <button class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
+                <svg style="width: 12px; height: 12px;" class="mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Export PDF
+                <svg style="width: 12px; height: 12px;" class="ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              
+              <!-- Dropdown Menu -->
+              <div class="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div class="py-1">
+                  <%= link_to "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100",
+                      onclick: "alert('PDF export functionality coming soon! This will download your complete autobiography as a PDF.'); return false;" do %>
+                    <svg style="width: 12px; height: 12px;" class="inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Complete Autobiography
+                  <% end %>
+                  <%= link_to "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100",
+                      onclick: "alert('PDF export functionality coming soon! This will download all chapters as individual PDFs.'); return false;" do %>
+                    <svg style="width: 12px; height: 12px;" class="inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Individual Chapters
+                  <% end %>
+                  <%= link_to "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100",
+                      onclick: "alert('PDF export functionality coming soon! This will download your photo gallery as a PDF album.'); return false;" do %>
+                    <svg style="width: 12px; height: 12px;" class="inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Photo Gallery Album
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <!-- Theme Switcher -->
+            <div class="relative group">
+              <button class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors flex items-center">
+                <svg style="width: 12px; height: 12px;" class="mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2a2 2 0 002-2V5a2 2 0 00-2-2z"></path>
+                </svg>
+                Themes
+                <svg style="width: 12px; height: 12px;" class="ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              
+              <!-- Theme Dropdown -->
+              <div class="absolute right-0 mt-2 w-56 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div class="py-1">
+                  <button onclick="switchTheme('default')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 mr-3"></div>
+                      Modern Blue (Default)
+                    </div>
+                  </button>
+                  <button onclick="switchTheme('classic')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 rounded-full bg-gradient-to-r from-slate-600 to-amber-600 mr-3"></div>
+                      Classic Elegance
+                    </div>
+                  </button>
+                  <button onclick="switchTheme('warm')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 rounded-full bg-gradient-to-r from-orange-400 to-red-400 mr-3"></div>
+                      Warm Memories
+                    </div>
+                  </button>
+                  <button onclick="switchTheme('vintage')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <div class="flex items-center">
+                      <div class="w-4 h-4 rounded-full bg-gradient-to-r from-amber-600 to-yellow-600 mr-3"></div>
+                      Vintage Sepia
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
             
             <!-- Authentication Links -->
             <% if authenticated? %>
@@ -76,6 +159,54 @@
           <%= link_to "Home", root_path, class: "block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium" %>
           <%= link_to "Chapters", list_chapters_path, class: "block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium" %>
           <%= link_to "Gallery", photos_path, class: "block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium" %>
+          
+          <!-- Mobile PDF Export Options -->
+          <div class="border-t border-gray-200 pt-2 mt-2">
+            <div class="px-3 py-2 text-gray-500 text-sm font-medium">PDF Export</div>
+            <%= link_to "#", class: "block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium",
+                onclick: "alert('PDF export functionality coming soon! This will download your complete autobiography.'); return false;" do %>
+              <svg style="width: 12px; height: 12px;" class="inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              Complete Book
+            <% end %>
+            <%= link_to "#", class: "block px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium",
+                onclick: "alert('PDF export functionality coming soon! This will download individual chapters.'); return false;" do %>
+              <svg style="width: 12px; height: 12px;" class="inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              Individual Chapters
+            <% end %>
+          </div>
+
+          <!-- Mobile Theme Switcher -->
+          <div class="border-t border-gray-200 pt-2 mt-2">
+            <div class="px-3 py-2 text-gray-500 text-sm font-medium">Choose Theme</div>
+            <button onclick="switchTheme('default')" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium">
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 mr-3"></div>
+                Modern Blue
+              </div>
+            </button>
+            <button onclick="switchTheme('classic')" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium">
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-slate-600 to-amber-600 mr-3"></div>
+                Classic Elegance
+              </div>
+            </button>
+            <button onclick="switchTheme('warm')" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium">
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-orange-400 to-red-400 mr-3"></div>
+                Warm Memories
+              </div>
+            </button>
+            <button onclick="switchTheme('vintage')" class="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 text-base font-medium">
+              <div class="flex items-center">
+                <div class="w-3 h-3 rounded-full bg-gradient-to-r from-amber-600 to-yellow-600 mr-3"></div>
+                Vintage Sepia
+              </div>
+            </button>
+          </div>
           
           <% if authenticated? %>
             <div class="border-t border-gray-200 pt-2">
@@ -136,6 +267,14 @@
               <span class="text-gray-300">•</span>
               <%= link_to "Add Photo", new_photo_path, class: "hover:text-blue-600 transition-colors font-medium" %>
             <% end %>
+            <span class="text-gray-300">•</span>
+            <%= link_to "#", class: "hover:text-blue-600 transition-colors font-medium",
+                onclick: "alert('PDF export functionality coming soon! This will download your complete autobiography as a beautiful PDF book.'); return false;" do %>
+              <svg style="width: 12px; height: 12px;" class="inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              Download Full Autobiography
+            <% end %>
           </div>
         </div>
 
@@ -157,6 +296,178 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenu.classList.toggle('hidden');
       });
+
+      // Theme switching functionality
+      function switchTheme(theme) {
+        const body = document.getElementById('app-body');
+        
+        // Remove all theme classes
+        body.classList.remove('theme-default', 'theme-classic', 'theme-warm', 'theme-vintage');
+        
+        // Add the selected theme class
+        body.classList.add('theme-' + theme);
+        
+        // Save theme preference
+        localStorage.setItem('autobiographyTheme', theme);
+        
+        // Show confirmation
+        const themeNames = {
+          'default': 'Modern Blue',
+          'classic': 'Classic Elegance', 
+          'warm': 'Warm Memories',
+          'vintage': 'Vintage Sepia'
+        };
+        
+        // Create a temporary notification
+        const notification = document.createElement('div');
+        notification.className = 'fixed top-20 right-4 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg z-50 transition-opacity';
+        notification.textContent = `Theme changed to ${themeNames[theme]}`;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.opacity = '0';
+          setTimeout(() => notification.remove(), 300);
+        }, 2000);
+      }
+
+      // Load saved theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('autobiographyTheme') || 'default';
+        switchTheme(savedTheme);
+      });
     </script>
+
+    <!-- Theme Styles -->
+    <style>
+      /* Default Theme (Modern Blue) - Current styling */
+      .theme-default {
+        /* Already using current blue theme */
+      }
+
+      /* Classic Elegance Theme */
+      .theme-classic {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+      
+      .theme-classic nav {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      }
+      
+      .theme-classic nav a, .theme-classic nav button {
+        color: #e2e8f0 !important;
+      }
+      
+      .theme-classic nav a:hover, .theme-classic nav button:hover {
+        color: #fbbf24 !important;
+      }
+      
+      .theme-classic .bg-blue-600 {
+        background: linear-gradient(135deg, #92400e 0%, #d97706 100%) !important;
+      }
+      
+      .theme-classic .bg-blue-600:hover {
+        background: linear-gradient(135deg, #78350f 0%, #c2410c 100%) !important;
+      }
+      
+      .theme-classic footer {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        color: #e2e8f0;
+      }
+      
+      .theme-classic .text-gray-900 {
+        color: #1e293b !important;
+      }
+
+      /* Warm Memories Theme */
+      .theme-warm {
+        background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+      }
+      
+      .theme-warm nav {
+        background: linear-gradient(135deg, #9a3412 0%, #dc2626 100%);
+        box-shadow: 0 4px 20px rgba(154,52,18,0.3);
+      }
+      
+      .theme-warm nav a, .theme-warm nav button {
+        color: #fef2f2 !important;
+      }
+      
+      .theme-warm nav a:hover, .theme-warm nav button:hover {
+        color: #fed7aa !important;
+      }
+      
+      .theme-warm .bg-blue-600 {
+        background: linear-gradient(135deg, #ea580c 0%, #f97316 100%) !important;
+      }
+      
+      .theme-warm .bg-blue-600:hover {
+        background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%) !important;
+      }
+      
+      .theme-warm footer {
+        background: linear-gradient(135deg, #92400e 0%, #b45309 100%);
+        color: #fef2f2;
+      }
+      
+      .theme-warm .text-gray-900 {
+        color: #9a3412 !important;
+      }
+      
+      .theme-warm .bg-white {
+        background: #fefbf3 !important;
+      }
+
+      /* Vintage Sepia Theme */
+      .theme-vintage {
+        background: linear-gradient(135deg, #fef3c7 0%, #f3e8aa 100%);
+        font-family: 'Georgia', serif;
+      }
+      
+      .theme-vintage nav {
+        background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+        box-shadow: 0 4px 20px rgba(120,53,15,0.4);
+        border-bottom: 3px solid #d97706;
+      }
+      
+      .theme-vintage nav a, .theme-vintage nav button {
+        color: #fef3c7 !important;
+        font-weight: 500;
+      }
+      
+      .theme-vintage nav a:hover, .theme-vintage nav button:hover {
+        color: #fbbf24 !important;
+      }
+      
+      .theme-vintage .bg-blue-600 {
+        background: linear-gradient(135deg, #a16207 0%, #ca8a04 100%) !important;
+        border: 2px solid #92400e;
+      }
+      
+      .theme-vintage .bg-blue-600:hover {
+        background: linear-gradient(135deg, #92400e 0%, #a16207 100%) !important;
+      }
+      
+      .theme-vintage footer {
+        background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+        color: #fef3c7;
+        border-top: 3px solid #d97706;
+      }
+      
+      .theme-vintage .text-gray-900 {
+        color: #78350f !important;
+        font-weight: 600;
+      }
+      
+      .theme-vintage .bg-white {
+        background: #fffbeb !important;
+        border: 1px solid #f3e8aa;
+      }
+      
+      .theme-vintage h1, .theme-vintage h2, .theme-vintage h3 {
+        font-family: 'Georgia', serif;
+        text-shadow: 1px 1px 2px rgba(120,53,15,0.1);
+      }
+    </style>
   </body>
 </html>

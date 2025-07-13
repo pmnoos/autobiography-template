@@ -9,7 +9,16 @@
 
   <%= render @chapter %>
 
-  <%= link_to "Edit this chapter", edit_chapter_path(@chapter), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  <!-- PDF Download Button -->
+  <%= link_to "#", class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium inline-block transition-colors", 
+      onclick: "alert('PDF export functionality coming soon! This will download this chapter as a PDF.'); return false;" do %>
+    <svg style="width: 12px; height: 12px;" class="inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+    </svg>
+    Download as PDF
+  <% end %>
+  
+  <%= link_to "Edit this chapter", edit_chapter_path(@chapter), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium mt-2 sm:mt-0 sm:ml-2" %>
   <%= link_to "Back to chapters", chapters_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
   <%= button_to "Destroy this chapter", @chapter, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
 </div>
