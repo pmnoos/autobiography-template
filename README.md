@@ -1,6 +1,6 @@
-# 📖 Autobiography Website Template
+# 📖 Your Digital Memoir Template
 
-A beautiful, responsive Ruby on Rails template for creating personal autobiography websites with modern Tailwind CSS styling.
+A beautiful, responsive Ruby on Rails template for creating stunning personal autobiography and memoir websites with modern Tailwind CSS styling.
 
 ## ✨ Features
 
@@ -50,6 +50,10 @@ A beautiful, responsive Ruby on Rails template for creating personal autobiograp
 5. **Visit your site**
    Open http://localhost:3000 in your browser
 
+6. **Login to admin area**
+   - Email: `admin@example.com`
+   - Password: `password123`
+
 ## 🎨 Customization
 
 ### Change Colors & Branding
@@ -64,7 +68,7 @@ The template uses Tailwind CSS for easy customization:
 
 - `app/views/layouts/application.html.erb` - Main layout and navigation
 - `app/views/pages/about.html.erb` - About page content
-- `public/profile.jpg` - Main profile image
+- `public/your-profile-photo.jpg` - Main profile image (replace with your photo)
 - `public/icon.png` - Site favicon and icon
 
 ## 📁 Structure
