@@ -15,46 +15,157 @@ A beautiful, responsive Ruby on Rails template for creating stunning personal au
 - **⚡ Fast Performance** - Optimized for speed and performance
 - **🔒 Privacy Controls** - Control who can view your content
 
-## 🚀 Quick Start
+## 🚀 Quick Start Guide
 
-### Prerequisites
-- Ruby 3.0+
-- Rails 7.0+
-- Node.js & Yarn
-- SQLite (or PostgreSQL for production)
+### 📋 What You'll Need Before Starting
 
-### Installation
+Before you begin, make sure you have these installed on your computer:
 
-1. **Clone the repository**
+- **Ruby 3.0 or higher** ([Download here](https://rubyinstaller.org/))
+- **Git** ([Download here](https://git-scm.com/downloads))
+- **Node.js & Yarn** ([Download Node.js](https://nodejs.org/), then run `npm install -g yarn`)
+
+*Don't worry - we'll check these during setup!*
+
+### 🎯 Step-by-Step Installation
+
+Choose the setup method that works best for you:
+
+#### Option 1: Interactive Setup Wizard (Recommended for beginners)
+
+**The easiest way** - A guided setup with system checks and helpful messages:
+
+```bash
+# Download the project first
+git clone https://github.com/pmnoos/autobiography-template.git
+cd autobiography-template
+
+# Run the interactive wizard
+ruby setup_wizard.rb
+```
+
+This wizard will:
+- ✅ Check all your system requirements  
+- ✅ Guide you through any missing components
+- ✅ Install everything automatically
+- ✅ Provide clear next steps
+
+#### Option 2: Automated Setup Script
+
+**For users who prefer automated scripts:**
+
+```bash
+# Download the project
+git clone https://github.com/pmnoos/autobiography-template.git
+cd autobiography-template
+
+# Windows (PowerShell)
+ruby bin/setup_template
+
+# Mac/Linux  
+./setup.sh
+# or
+ruby bin/setup_template
+```
+
+#### Option 3: Manual Setup (For advanced users)
+
+**If you prefer to see each step:**
+
+1. **Clone and enter directory**
    ```bash
-   git clone https://github.com/yourusername/autobiography-template.git
+   git clone https://github.com/pmnoos/autobiography-template.git
    cd autobiography-template
    ```
 
-2. **Install dependencies**
+2. **Install Ruby dependencies**
    ```bash
    bundle install
+   ```
+
+3. **Install JavaScript dependencies**
+   ```bash
    yarn install
    ```
 
-3. **Setup database**
+4. **Setup database with sample content**
    ```bash
    rails db:create
    rails db:migrate
    rails db:seed
    ```
 
-4. **Start the server**
+5. **Start the server**
    ```bash
    rails server
    ```
 
-5. **Visit your site**
-   Open http://localhost:3000 in your browser
+### 🔐 First Login
 
-6. **Login to admin area**
-   - Email: `admin@example.com`
-   - Password: `password123`
+Once your server is running, you can sign in to start creating your autobiography:
+
+- **URL**: http://localhost:3000
+- **Email**: `admin@example.com`
+- **Password**: `password123`
+
+*Change these credentials immediately after your first login!*
+
+### ✅ Verify Everything Works
+
+After setup, you should be able to:
+- ✅ View the homepage with sample content
+- ✅ Browse sample chapters in the "Chapters" section  
+- ✅ View the photo gallery
+- ✅ Sign in to the admin area
+- ✅ Try the theme switcher in the navigation
+- ✅ Test PDF export buttons (shows "coming soon" messages)
+
+### 🔧 Troubleshooting Setup Issues
+
+**Problem: "Ruby not found" or version too old**
+```bash
+# Check your Ruby version
+ruby --version
+
+# If you need to install/upgrade Ruby:
+# Windows: Download from https://rubyinstaller.org/
+# Mac: brew install ruby
+# Linux: Use your package manager (apt, yum, etc.)
+```
+
+**Problem: "Bundle install fails"**
+```bash
+# Try updating bundler first
+gem install bundler
+bundle install
+```
+
+**Problem: "Rails not found"**
+```bash
+# Install Rails
+gem install rails
+```
+
+**Problem: "Yarn not found"**
+```bash
+# Install yarn globally
+npm install -g yarn
+```
+
+**Problem: "Database connection error"**
+```bash
+# Recreate the database
+rails db:drop db:create db:migrate db:seed
+```
+
+**Problem: "Port 3000 already in use"**
+```bash
+# Start on a different port
+rails server -p 3001
+# Then visit http://localhost:3001
+```
+
+**Need more help?** Check the [full troubleshooting guide](docs/TROUBLESHOOTING.md) or create an issue on GitHub.
 
 ## 📄 PDF Export Features
 

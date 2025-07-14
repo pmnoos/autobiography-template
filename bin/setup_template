@@ -1,52 +1,138 @@
 #!/usr/bin/env ruby
 
-puts "🚀 Setting up your Autobiography Template..."
+puts "� Digital Autobiography Template Setup"
+puts "=" * 50
 puts
 
 # Check Ruby version
 ruby_version = RUBY_VERSION
+puts "🔍 Checking Ruby version..."
 if ruby_version < "3.0"
   puts "❌ Ruby #{ruby_version} detected. Please upgrade to Ruby 3.0 or higher."
+  puts "   Visit: https://rubyinstaller.org/ (Windows) or use brew/apt (Mac/Linux)"
   exit 1
 else
-  puts "✅ Ruby #{ruby_version} - Good!"
+  puts "✅ Ruby #{ruby_version} - Perfect!"
 end
 
 # Check Rails
+puts "🔍 Checking Rails..."
 begin
   require 'rails/version'
   rails_version = Rails.version
-  puts "✅ Rails #{rails_version} - Good!"
+  puts "✅ Rails #{rails_version} - Great!"
 rescue LoadError
-  puts "❌ Rails not found. Please install Rails 7.0 or higher."
+  puts "❌ Rails not found. Installing Rails..."
+  system("gem install rails") or begin
+    puts "Failed to install Rails. Please run: gem install rails"
+    exit 1
+  end
+  puts "✅ Rails installed successfully!"
+end
+
+# Check for Node.js and Yarn
+puts "🔍 Checking Node.js and Yarn..."
+if system("node --version > /dev/null 2>&1")
+  puts "✅ Node.js - Good!"
+else
+  puts "❌ Node.js not found. Please install from: https://nodejs.org/"
   exit 1
+end
+
+if system("yarn --version > /dev/null 2>&1")
+  puts "✅ Yarn - Good!"
+else
+  puts "❌ Yarn not found. Installing Yarn..."
+  system("npm install -g yarn") or begin
+    puts "Failed to install Yarn. Please run: npm install -g yarn"
+    exit 1
+  end
 end
 
 puts
 puts "📦 Installing dependencies..."
+puts "   This may take a few minutes..."
 
 # Install gems
-system("bundle install") or exit 1
+print "   Installing Ruby gems... "
+if system("bundle install > /dev/null 2>&1")
+  puts "✅"
+else
+  puts "❌"
+  puts "Failed to install gems. Please check your internet connection and try again."
+  exit 1
+end
 
 # Install JavaScript dependencies
-system("yarn install") or exit 1
+print "   Installing JavaScript packages... "
+if system("yarn install > /dev/null 2>&1")
+  puts "✅"
+else
+  puts "❌"
+  puts "Failed to install JavaScript packages. Please check your internet connection."
+  exit 1
+end
 
 puts
 puts "🗄️ Setting up database..."
 
 # Setup database
-system("rails db:create") or exit 1
-system("rails db:migrate") or exit 1
-system("rails db:seed") or exit 1
+print "   Creating database... "
+if system("rails db:create > /dev/null 2>&1")
+  puts "✅"
+else
+  puts "❌"
+  puts "Database creation failed. Check the troubleshooting guide."
+  exit 1
+end
+
+print "   Running migrations... "
+if system("rails db:migrate > /dev/null 2>&1")
+  puts "✅"
+else
+  puts "❌"
+  puts "Migration failed. Check the troubleshooting guide."
+  exit 1
+end
+
+print "   Adding sample content... "
+if system("rails db:seed > /dev/null 2>&1")
+  puts "✅"
+else
+  puts "❌"
+  puts "Seeding failed. Check the troubleshooting guide."
+  exit 1
+end
 
 puts
-puts "🎨 Template setup complete!"
+puts "� Setup Complete!"
+puts "=" * 50
 puts
-puts "Next steps:"
-puts "1. Run 'rails server' to start the application"
-puts "2. Visit http://localhost:3000 in your browser"
-puts "3. Check the docs/ folder for customization guides"
-puts "4. Replace placeholder text with your own content"
+puts "🚀 Next steps:"
+puts "1. Start the server:"
+puts "   rails server"
 puts
+puts "2. Open your browser and visit:"
+puts "   http://localhost:3000"
+puts
+puts "3. Sign in with these credentials:"
+puts "   Email: admin@example.com"
+puts "   Password: password123"
+puts "   (Change these after first login!)"
+puts
+puts "4. Start customizing your autobiography:"
+puts "   • Add your own chapters and content"
+puts "   • Upload your photos"
+puts "   • Try the different themes"
+puts "   • Customize colors and styling"
+puts
+puts "📚 Documentation:"
+puts "   • README.md - Overview and features"
+puts "   • docs/CUSTOMIZATION.md - How to customize"
+puts "   • docs/TROUBLESHOOTING.md - Fix common issues"
+puts
+puts "🆘 Need help? Check docs/TROUBLESHOOTING.md or create a GitHub issue"
+puts
+puts "Happy autobiography writing! 📖✨"
 puts "📖 Read CUSTOMIZATION.md for styling instructions"
 puts "🚀 Happy writing!"
